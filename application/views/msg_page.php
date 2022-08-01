@@ -177,15 +177,16 @@ else{
                                         <div class="col-sm-8">
                                              <h5 class="name" style="font-weight: 550;"><?php echo $row->name; ?></h5>
                                              <p class="description" style="font-size:13px;font-weight: 500;"><i class='bx bx-envelope'></i> <?php echo $row->email; ?></p>
-                                             <h5><i class='bx bx-phone'></i> <?php echo $row->phone; ?></h5>
+                                             <h5 style="font-size:13px;font-weight: 500;"><i class='bx bx-phone'></i> <?php echo $row->phone; ?></h5>
                                              <p class="" style="font-size:13px;font-weight: 500;"><i class='bx bx-message'></i> <?php echo $rd->msg_send; ?> </p>
-                                             <button class="w3-button w3-small w3-blue see-more">See Book</button>
+                                             <button class="w3-button w3-small w3-blue see-more" rel="<?php echo $rd->book_code;?>">See Book</button>
                                              <button class="w3-button w3-small w3-red" rel="<?php echo $rd->code;?>">Delete</button>
                                         </div>
                                         <script>
                                              $(document).ready(function(){
-                                                  $(".see-more").click(function(){
-                                                       $("#book-slot").css("display","flex");
+                                                  $(".w3-blue").click(function(){
+											var id = $(this).attr("rel");
+                                                       $("#"+id).css("display","flex");
                                                        $(this).hide();
                                                   });
                                              });
@@ -210,15 +211,15 @@ else{
                                    }
                                    ?>
                               </div><br>
-                              <div class="row" style="display:none;" id="book-slot">
-                                   <?php 
+						<?php 
                                    $this->db->select('*');
                                    $this->db->from('book_data');
                                    $this->db->where('code',$rd->book_code);
                                    $this->db->limit(20);
                                    $query = $this->db->get();
                                    foreach($query->result() as $row){
-                                   ?>   
+                                   ?> 
+                              <div class="row" style="display:none;" id="<?php echo $rd->book_code;?>">  
                                         <a href="<?php echo base_url()."index.php/Welcome/view_book/".$row->code;?>" style="display: flex;color:#000">
                                         <div class="col-sm-4">
                                              <center><img src="<?php echo base_url()."uploads/".$row->code.".png";?>" alt="" style="width: 100px;padding-top:10px;" class="img-fluid book-img" title="click to see more"></center>
@@ -228,10 +229,10 @@ else{
                                              <p class="description" style="font-size:13px;font-weight: 500;"><?php echo $row->detail; ?></p>
                                              <h5><?php echo $row->price; ?> &nbsp;<span style="font-size:12px;font-weight: 500;"><s><?php echo $row->mrp; ?></s></span></h5>
                                         </div></a>
-                                   <?php
+                              </div>
+						 <?php
                                    }
                                    ?>
-                              </div>
                          </div>
 					<?php
 					}

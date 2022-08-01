@@ -68,7 +68,7 @@ class Welcome extends CI_Controller {
 					$this->session->set_userdata($email,$pass);
 					redirect(base_url()."index.php/Welcome/profile/");
 				}else{
-					redirect(base_url()."index.php/Welcome/signIn/again");
+					redirect(base_url()."index.php/Welcome/signIn/block");
 				}
 			}
 		}else{

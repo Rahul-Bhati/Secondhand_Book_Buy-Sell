@@ -4,14 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class Record extends CI_Model
 	{
 		public function check($email,$pass){
+			$multiwhere = ['email'=>$email,'status'=>0];
 			$this->db->select('pass');
 			$this->db->from('user');
-			$this->db->where("email",$email);
+			$this->db->where($multiwhere);
 			//return $this->db->get()->result();
 			foreach($this->db->get()->result() as $row){
 				$rpass = $row->pass;
 				if($rpass == $pass){
-					return true;
+					return "success";
 				}
 			}
 		}

@@ -229,6 +229,10 @@ if(!get_cookie("login") || !$this->session->userdata(get_cookie("login"))){
                ?>
 				<h5 class="alert alert-warning" >You Are Logout !</h5>
 			<?php
+               }else if($this->uri->segment(3)=="block"){
+               ?>
+				<h5 class="alert alert-danger" >You Are Blocked !</h5>
+			<?php
                }
           ?>
      <div class="title">Registration <a href="<?php echo base_url()?>"><button class="btn btn-info" style="float:right;">Home</button></a></div>

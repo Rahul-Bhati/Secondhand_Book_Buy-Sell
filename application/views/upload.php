@@ -271,13 +271,23 @@ else{
                          <div class="input-box">
 				          <span class="details">Category</span>
                               <select name="category"> 
-                                   <option value="Competative Exam">Competative Exam</option>
+                                   <?php
+                                   $this->db->select('*');
+                                   $this->db->from('category');
+                                   $query = $this->db->get();
+			                    foreach($query->result() as $row){
+                                   ?>
+                                        <option value="<?php echo $row->cat_name;?>"><?php echo $row->cat_name;?></option>
+                                   <?php
+                                   }
+                                   ?>
+                                   <!-- <option value="Competative Exam">Competative Exam</option>
                                    <option value="Engineering">Engineering</option>
                                    <option value="Medical">Medical</option>
                                    <option value="Magazines">Magazines</option>
                                    <option value="Management Book">Management Book</option>
                                    <option value="School Books">School Books</option>
-                                   <option value="Stories">Stories</option>
+                                   <option value="Stories">Stories</option> -->
                               </select> 
 			          </div>
                          <div class="input-box">
