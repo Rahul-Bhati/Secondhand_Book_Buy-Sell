@@ -12,6 +12,10 @@ I am an undergraduate year of student currently purchase a Bachelors' course in 
 
 - [@Rahul-Bhati](https://github.com/Rahul-Bhati)
 
+## Built With
+- [Php](https://github.com/php/php-src/blob/3660bc31defc1fc8fb49942a294d5f2482084115/README.md) : A popular general-purpose scripting language that is especially suited to web development.
+
+- [CodeIgniter 3.0](https://github.com/codeimprove0/codeigniter-3/blob/45a8b31803caeaea32c8134fbdca3010d911de23/readme.rst) : CodeIgniter is a powerful PHP framework with a very small footprint, built for developers who need a simple and elegant toolkit to create full-featured web applications.
 
 # Screenshots
 
